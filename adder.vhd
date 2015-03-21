@@ -5,16 +5,8 @@ use ieee.std_logic_1164.all;
 -- déclaration de l'entité de l'additionneur:
 entity adder is
   port (
-
-    -- entrées:
-    augend    : in std_logic;
-    addend    : in std_logic;
-    carry_in  : in std_logic;
-
-    -- sorties:
-    sum       : out std_logic;
-    carry_out : out std_logic
-
+    augend, addend, carry_in : in  std_logic;
+    sum, carry_out           : out std_logic
   );
 end adder;
 

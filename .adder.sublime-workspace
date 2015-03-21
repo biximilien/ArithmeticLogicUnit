@@ -3,42 +3,74 @@
 	{
 		"selected_items":
 		[
+			[
+				"std",
+				"std_logic"
+			],
+			[
+				"car",
+				"carry_in"
+			],
+			[
+				"st",
+				"std_logic"
+			],
+			[
+				"carr",
+				"carry_out"
+			],
+			[
+				"two",
+				"twos_complement_n"
+			],
+			[
+				"adder",
+				"adder_n"
+			],
+			[
+				"adde",
+				"addend"
+			],
+			[
+				"or",
+				"or_gate"
+			],
+			[
+				"carry",
+				"carry_out"
+			],
+			[
+				"twos",
+				"twos_complement_n"
+			],
+			[
+				"twos_com",
+				"twos_complement_n_impl"
+			],
+			[
+				"or_gate",
+				"or_gate_impl"
+			],
+			[
+				"and",
+				"and_gate"
+			],
+			[
+				"arithm",
+				"arithmetic_logic_unit"
+			],
+			[
+				"twos_",
+				"twos_complement_n_impl"
+			],
+			[
+				"Twos",
+				"TwosComplementNImpl"
+			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "additionneur.vhd",
-			"settings":
-			{
-				"buffer_size": 1020,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "additionneur_n_bits.vhd",
-			"settings":
-			{
-				"buffer_size": 1506,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "And2.vhd",
-			"settings":
-			{
-				"buffer_size": 212,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Or2.vhd",
-			"settings":
-			{
-				"buffer_size": 206,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -68,6 +100,21 @@
 	},
 	"file_history":
 	[
+		"//FICHIERSETU/ETUDIANTS/gaum73/Desktop/Adder/adder.vhd",
+		"//FICHIERSETU/ETUDIANTS/gaum73/Desktop/Adder/subtractor_n.vhd",
+		"//FICHIERSETU/ETUDIANTS/gaum73/Desktop/Adder/adder_n.vhd",
+		"//FICHIERSETU/ETUDIANTS/gaum73/Desktop/Adder/arithmetic_logic_unit.vhd",
+		"//FICHIERSETU/ETUDIANTS/gaum73/Desktop/Adder/and_gate.vhd",
+		"//FICHIERSETU/ETUDIANTS/gaum73/Desktop/Adder/comparator.vhd",
+		"//FICHIERSETU/ETUDIANTS/gaum73/Desktop/Adder/or_gate.vhd",
+		"//FICHIERSETU/ETUDIANTS/gaum73/Desktop/Adder/exclusive_or_gate.vhd",
+		"//FICHIERSETU/ETUDIANTS/gaum73/Desktop/Adder/twos_complement_n.vhd",
+		"//FICHIERSETU/ETUDIANTS/gaum73/Desktop/Adder/README.md",
+		"//FICHIERSETU/ETUDIANTS/gaum73/Desktop/Adder/twos_complement.vhd",
+		"//FICHIERSETU/ETUDIANTS/gaum73/Desktop/Adder/TwosComplementN.vhdl",
+		"//FICHIERSETU/ETUDIANTS/gaum73/Desktop/Adder/.adder.sublime-project",
+		"/C/Users/gaum73/GitPortable/Data/home/.ssh/id_rsa.pub",
+		"/C/Users/gaum73/GitPortable/Data/home/.ssh/id_rsa",
 		"/U/sublime/Data/Packages/User/Preferences.sublime-settings",
 		"/U/sublime/Data/Packages/User/Default (Windows).sublime-keymap",
 		"/C/Users/gaum73/Downloads/RéalitéVirtuelle/CodeCours6/CodeCours6/dungeon.wrl",
@@ -104,6 +151,30 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"carry_out",
+			"somme_de_n_bits",
+			"sommateur",
+			"structurelle",
+			"additionneur_n_bits",
+			"And2",
+			"Xor2",
+			"a",
+			"A",
+			"structurelle",
+			"additionneur",
+			"twoscompliment_v1",
+			"or2",
+			"exclusive_or",
+			"implAnd2",
+			"structurelle",
+			"arithmeticlogicunit",
+			"xor2_impl",
+			"TwosComplementN",
+			"downto",
+			"Nbits",
+			"use",
+			"in",
+			"out",
 			"Bill",
 			"drag",
 			"Drag",
@@ -136,113 +207,8 @@
 	"groups":
 	[
 		{
-			"selected": 3,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "additionneur.vhd",
-					"settings":
-					{
-						"buffer_size": 1020,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								969,
-								969
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/VHDL/Syntaxes/VHDL.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "additionneur_n_bits.vhd",
-					"settings":
-					{
-						"buffer_size": 1506,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1457,
-								1457
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/VHDL/Syntaxes/VHDL.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "And2.vhd",
-					"settings":
-					{
-						"buffer_size": 212,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								162,
-								162
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/VHDL/Syntaxes/VHDL.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Or2.vhd",
-					"settings":
-					{
-						"buffer_size": 206,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								206,
-								206
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/VHDL/Syntaxes/VHDL.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -252,7 +218,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 31.0
 	},
 	"layout":
 	{
@@ -302,6 +268,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 194.0,
 	"status_bar_visible": true
 }

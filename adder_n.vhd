@@ -1,56 +1,59 @@
--- cadre : conception des circuits integrés ( gen 1333 )
--- par : antoine shaneen
--- date : 07 / 12 / 2005
--- fichier : adder_n.vhd
--- description : vhdl pour un additionneur générique (n bits)
--- en utilisant un type de description structurelle.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-- Cadre       : GEN1333 - Conception des circuits integrés                  --
+--             : Projet de conception individuel 1                           --
+-- Par         : Maxime Gauthier                                             --
+-- Date        : 03 / 21 / 2015                                              --
+-- Fichier     : adder_n.vhd                                                   --
+-- Description : VHDL pour une unité arithmétique logique générique (n bits) --
+--             : basé sur du matériel de cours fourni par Ahmed Lakhsassi    --
+--             : et du code originellement écrit par Antoine Shaneen         --
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 -- librairie a inclure
 library ieee;
 use ieee.std_logic_1164.all;
 
 -- déclaration de l'entité de l'additionneur générique (n bits) paramétrable
-entity additionneur_n_bits is
-  generic ( n : integer := 8);
+entity adder_n is
+  generic ( N : integer := 8);
   port (
-  
-    -- entrées:
-    a   : in std_logic_vector(n downto 1);
-    b   : in std_logic_vector(n downto 1);
-    cin : in std_logic;
-
-    -- sorties:
-    q: out std_logic_vector(n downto 1);
-    cout: out std_logic
-
+    augend, addend : in  std_logic_vector ( N downto 1 );
+    sum            : out std_logic_vector( N downto 1 );
+    carry_flag     : out std_logic
   );
-end additionneur_n_bits;
+end adder_n;
 
 -- architecture structurelle de l'additionneur générique (n bits).
-architecture structurelle of additionneur_n_bits is
+architecture adder_n_impl of adder_n is
 
   -- declaration des composants
   -- on ne declare pas un additionneur de 1-bit si c'est definit dans package
-  component additionneur
-    port( a, b, cin : in std_logic; q, cout : out std_logic );
+  component adder
+    port(
+      augend, addend, carry_in : in  std_logic;
+      sum, carry_out           : out std_logic
+    );
   end component;
 
   -- zone de déclaration
-  signal cs : std_logic_vector (n downto 0); -- pour garder le carry
+  signal cs : std_logic_vector ( N downto 0 ); -- pour garder le carry
+
   begin
 
-    cs(0) <= cin;
-    cout  <= cs(n);
+    cs(0)     <= carry_in;
+    carry_out <= cs(N);
     
     --instantiation de l'additionneur de 1 bit n fois
-    sommateur : for i in 1 to n generate
-      somme_de_n_bits : additionneur
+    summator : for i in 1 to N generate
+      sum_n : adder
       port map (
-        a => a(i),
-        b => b(i),
-        cin => cs(i-1),
-        q => q(i),
-        cout => cs(i)
+        augend    => augend(i),
+        addend    => addend(i),
+        carry_in  => cs(i-1),
+        sum       => sum(i),
+        carry_out => cs(i)
       );
-    end generate sommateur;
-end structurelle;
+    end generate summator;
+end adder_n_impl;

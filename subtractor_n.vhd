@@ -4,7 +4,7 @@
 --             : Projet de conception individuel 1                           --
 -- Par         : Maxime Gauthier                                             --
 -- Date        : 03 / 21 / 2015                                              --
--- Fichier     : arithmetic_logic_unit.vhd                                   --
+-- Fichier     : subtractor_n.vhd                                            --
 -- Description : VHDL pour une unité arithmétique logique générique (n bits) --
 --             : basé sur du matériel de cours fourni par Ahmed Lakhsassi    --
 --             : et du code originellement écrit par Antoine Shaneen         --
@@ -15,35 +15,39 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
--- déclaration de l'entité de l'unité arithmétique logique générique (n bits) paramétrable
-entity arithmetic_logic_unit is
+-- déclaration de l'entité de l'additionneur générique (n bits) paramétrable
+entity subtractor_n is
   generic ( N : integer := 8);
   port (
-    operand_a, operand_b : in  std_logic_vector (N downto 1);
-    mode_selector        : in  std_logic_vector (3 downto 1);
-    result               : out std_logic_vector (N downto 1);
-    overflow_flag, carry_flag, zero_flag, sign_flag, parity_flag : out std_logic
+    minuend, subtrahend : in  std_logic_vector ( N downto 1 );
+    difference          : out std_logic_vector ( N downto 1 );
+    overflow_flag       : out std_logic;
   );
-end arithmetic_logic_unit;
+end entity subtractor_n;
 
 -- architecture structurelle de l'additionneur générique (n bits).
-architecture arithmetic_logic_unit_impl of additionneur_n_bits is
+architecture subtractor_n_impl of subtractor_n is
 
   -- declaration des composants
   component adder_n
     port(
-      augend, addend : in  std_logic_vector ( N downto 1 );
-      sum            : out std_logic_vector ( N downto 1 );
-      carry_flag     : out std_logic
+      augend, addend, carry_in : in  std_logic;
+      sum, carry_out           : out std_logic
     );
   end component;
 
-  component subtractor_n
+  component twos_complement_n
     port(
-      minuend, subtrahend : in  std_logic_vector ( N downto 1 );
-      difference          : out std_logic_vector ( N downto 1 );
-      overflow_flag       : out std_logic;
+      x : in  std_logic_vector ( N downto 1 );
+      y : out std_logic_vector ( N downto 1 )
     );
   end component;
 
-end arithmetic_logic_unit_impl;
+  -- zone de déclaration
+  signal s : std_logic_vector ( N downto 1 );
+
+  begin
+    adder_1 : adder_n port map(minuend, s, carry_in, difference, overflow_flag);
+    twos_1  : twos_complement_n port map(subtrahend, s);
+    
+end architecture subtractor_n_impl;
