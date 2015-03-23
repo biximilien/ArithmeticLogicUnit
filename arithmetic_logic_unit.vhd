@@ -76,6 +76,7 @@ architecture arithmetic_logic_unit_impl of arithmetic_logic_unit is
     
   begin
     
+    -- Ca marche pas!
     s1 <= operand_a, s2 <= operand_b when mode_selector = "00000000",
     s3 <= operand_a, s4 <= operand_b when mode_selector = "00000010",
     s5 <= operand_a when mode_selector = "00010000",
