@@ -27,7 +27,7 @@ entity arithmetic_logic_unit is
 end arithmetic_logic_unit;
 
 -- architecture structurelle de l'additionneur générique (n bits).
-architecture arithmetic_logic_unit_impl of additionneur_n_bits is
+architecture arithmetic_logic_unit_impl of arithmetic_logic_unit is
 
   -- declaration des composants
   component adder_n
@@ -42,8 +42,12 @@ architecture arithmetic_logic_unit_impl of additionneur_n_bits is
     port(
       minuend, subtrahend : in  std_logic_vector ( N downto 1 );
       difference          : out std_logic_vector ( N downto 1 );
-      overflow_flag       : out std_logic;
+      overflow_flag       : out std_logic
     );
   end component;
+  
+  begin
+    
+    
 
 end arithmetic_logic_unit_impl;
