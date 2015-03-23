@@ -46,8 +46,48 @@ architecture arithmetic_logic_unit_impl of arithmetic_logic_unit is
     );
   end component;
   
+  component decoder38
+    port(
+      decoder_in  : in  std_logic_vector ( 3 downto 1 );
+      decoder_out : out std_logic_vector ( 8 downto 1 )
+    );
+  end component;
+  
+  component right_shift_n
+    port (
+      rs_in  : in  std_logic_vector ( N downto 1 );
+      rs_out : out std_logic_vector ( N downto 1 )
+    );
+  end component;
+  
+  component left_shift_n
+    port (
+      ls_in  : in  std_logic_vector ( N downto 1 );
+      ls_out : out std_logic_vector ( N downto 1 )
+    );
+  end component;
+  
+  component comparator_n
+    port (
+       a, b  : in  std_logic_vector ( N downto 1 );
+      gt, eq : out std_logic
+    );
+  end component;
+    
   begin
     
-    
+    s1 <= operand_a, s2 <= operand_b when mode_selector = "00000000",
+    s3 <= operand_a, s4 <= operand_b when mode_selector = "00000010",
+    s5 <= operand_a when mode_selector = "00010000",
+    s6 <= operand_a when mode_selector = "00100000",
+    s7 <= operand_b when mode_selector = "01000000",
+    s8 <= operand_b when others;
+      
+    adder: adder_n port map (s1, s2, result, carry_flag);
+    subtractor: subtractor_n port map (s3, s4, result, overflow_flag);
+    rs_a: right_shift_n port map (s5, result);
+    ls_a: left_shift_n port map (s6, result);
+    rs_b: right_shift_n port map (s7, result);
+    ls_b: left_shift_n port map (s8, result);
 
 end arithmetic_logic_unit_impl;
