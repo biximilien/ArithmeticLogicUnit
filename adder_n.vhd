@@ -20,16 +20,16 @@ entity adder_n is
   generic ( N : integer := 8);
   port (
     augend, addend : in  std_logic_vector ( N downto 1 );
-    sum            : out std_logic_vector( N downto 1 );
-    carry_flag     : out std_logic
+    sum            : out std_logic_vector ( N downto 1 );
+    carry_in       : in  std_logic;
+    carry_out      : out std_logic
   );
 end adder_n;
 
 -- architecture structurelle de l'additionneur générique (n bits).
 architecture adder_n_impl of adder_n is
 
-  -- declaration des composants
-  -- on ne declare pas un additionneur de 1-bit si c'est definit dans package
+  -- declare components
   component adder
     port(
       augend, addend, carry_in : in  std_logic;
@@ -37,7 +37,7 @@ architecture adder_n_impl of adder_n is
     );
   end component;
 
-  -- zone de déclaration
+  -- declare signal
   signal cs : std_logic_vector ( N downto 0 ); -- pour garder le carry
 
   begin

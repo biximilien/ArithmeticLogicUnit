@@ -20,8 +20,9 @@ entity subtractor_n is
   generic ( N : integer := 8);
   port (
     minuend, subtrahend : in  std_logic_vector ( N downto 1 );
+    carry_in            : in  std_logic;
     difference          : out std_logic_vector ( N downto 1 );
-    overflow_flag       : out std_logic;
+    overflow_flag       : out std_logic
   );
 end entity subtractor_n;
 
@@ -31,8 +32,10 @@ architecture subtractor_n_impl of subtractor_n is
   -- declaration des composants
   component adder_n
     port(
-      augend, addend, carry_in : in  std_logic;
-      sum, carry_out           : out std_logic
+      augend, addend : in  std_logic_vector ( N downto 1 );
+      carry_in       : in  std_logic;
+      sum            : out std_logic_vector ( N downto 1 );
+      carry_out      : out std_logic
     );
   end component;
 
